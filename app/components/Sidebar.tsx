@@ -50,7 +50,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="h-[calc(100vh-3.5rem)] overflow-y-auto p-4">
         <h1 className="text-sm text-black font-semibold mb-2 ml-1.5">Chat History</h1>
      {/*   @typescript-eslint/no-explicit-any */}
-         {chatHistory.map((chat: any, index) => (
+         {chatHistory.map((chat: { id: string, title: string }, index) => (
           <a
             key={index}
             href={`/c/${chat.id}`}

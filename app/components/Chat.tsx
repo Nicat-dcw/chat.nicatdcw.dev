@@ -7,12 +7,11 @@ interface ChatProps {
   messages: Message[];
   messagesEndRef: React.RefObject<HTMLDivElement>;
 }
-
 type ContentPart = 
-  | { type: 'text'; content: string; }
-  | { type: 'code'; content: string; lang?: string; title: string; }
-  | { type: 'artifact'; content: string; lang?: string; title: string; artifactType: 'code' | 'document' | 'diagram' };
-
+  | { type: "text"; content: string }
+  | { type: "code"; content: string; lang?: string; title: string }
+  | { type: "artifact"; content: string; lang?: string; title: string; artifactType: "code" | "document" | "diagram" }
+  
 function parseContent(content: string): ContentPart[] {
   // First split by artifact tags
   const artifactRegex = /<greesyArtifacts.*?>([\s\S]*?)<\/greesyArtifacts>/g;
@@ -35,11 +34,11 @@ function parseContent(content: string): ContentPart[] {
     const type = attributesStr.match(/type="([^"]*)"/)?.[ 1] || 'code';
 
     parts.push({
-      type: 'artifact',
+      type: 'artifact' as const,
       content: match[1].trim(),
       lang,
       title,
-      artifactType: type,
+      artifactType: type as "code" | "document" | "diagram",
     });
 
     lastIndex = artifactRegex.lastIndex;
