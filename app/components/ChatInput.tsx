@@ -33,7 +33,7 @@ export default function ChatInput({
     <div className="relative">
       {/* Model Selection Drawer - Changed position to top-full and adjusted margins */}
       <div 
-        className={`absolute left-12 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transform transition-all duration-200 ease-in-out z-50 ${
+        className={`absolute left-12 w-64 darl:bg-black bg-white rounded-lg shadow-lg border border-gray-200 transform transition-all duration-200 ease-in-out z-50 ${
           isModelDrawerOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0 pointer-events-none'
         }`}
       >
@@ -49,7 +49,7 @@ export default function ChatInput({
                 setIsModelDrawerOpen(false);
               }}
               className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 rounded-md transition-colors ${
-                selectedModel === model.id ? 'bg-gray-100' : ''
+                selectedModel === model.id ? 'bg-gray-100 dark:bg-transparent dark:text-white' : ''
               }`}
             >
               {model.name}
@@ -61,14 +61,14 @@ export default function ChatInput({
       <form className="w-full" onSubmit={onSubmit}>
         <div className="relative flex h-full max-w-full flex-1 flex-col">
           <div className="group relative flex w-full items-center">
-            <div className="flex w-full cursor-text flex-col rounded-3xl px-2.5 py-1 transition-colors contain-inline-size bg-[#f4f4f4] dark:bg-[#f9f9f9]">
+            <div className="flex w-full cursor-text flex-col rounded-3xl px-2.5 py-1 transition-colors contain-inline-size dark:bg-[#2f2f2f] bg-[#f4f4f4] dark:bg-[#f9f9f9]">
               <div className="flex min-h-[44px] items-start pl-2">
                 <div className="min-w-0 max-w-full flex-1">
                   <div className="whitespace-pre-wrap text-token-text-primary max-h-[25dvh] max-h-52 overflow-auto default-browser">
                     <textarea
                       value={input}
                       onChange={(e) => onInputChange(e.target.value)}
-                      className="block mt-2 h-10 text-gray-900 border-none focus:outline-none w-full resize-none border-0 bg-transparent px-0 py-2 placeholder:text-[#5d5d5d]"
+                      className="block mt-2 h-10 text-gray-900 dark:text-gray-200 border-none focus:outline-none w-full resize-none border-0 bg-transparent px-0 py-2 placeholder:text-[#5d5d5d]"
                       autoFocus={false}
                       placeholder="Message GreesyChat"
                       data-virtualkeyboard="true"
@@ -83,7 +83,7 @@ export default function ChatInput({
                   <button
                     type="button"
                     onClick={() => setIsModelDrawerOpen(!isModelDrawerOpen)}
-                    className="flex items-center gap-x-1 px-3 py-1 text-sm rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+                    className="flex items-center gap-x-1 px-3 py-1 text-sm rounded-lg dark:bg-transparent bg-gray-100 hover:bg-gray-200 transition-colors"
                   >
                     <span>{selectedModel}</span>
                    

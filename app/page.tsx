@@ -77,10 +77,10 @@ export default function Home() {
   return (
     <>
 
-    <main className="min-h-screen flex">
+    <main className="flex-1 relative z-0 overflow-hidden h-screen bg-background">
     {isSidebarOpen && <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />}
 
-        <div className="draggable sticky top-0 z-10 flex min-h-[60px] items-center justify-center border-transparent bg-token-main-surface-primary pl-0 md:hidden">
+        <div className="draggable sticky top-0 z-10 flex min-h-[60px] dark:bg-[#212121] items-center justify-center border-transparent bg-token-main-surface-primary pl-0 md:hidden">
 
   <div className="no-draggable absolute bottom-0 left-0 top-0 ml-3 inline-flex items-center justify-center">
     <button
@@ -266,7 +266,7 @@ export default function Home() {
               role="menu"
               aria-orientation="vertical"
               data-state="open"
-              className="z-50 border border-[#e3e3e3] max-w-xs rounded-2xl popover bg-white shadow-lg will-change-[opacity,transform] border border-token-border-light py-2 min-w-[340px] overflow-hidden"
+              className="z-50 border border-[#e3e3e3] max-w-xs rounded-2xl popover bg-white dark:bg-[#212121] shadow-lg will-change-[opacity,transform] border border-token-border-light py-2 min-w-[340px] overflow-hidden"
             >
               {/* ChatGPT Plus Option */}
               <div
@@ -342,9 +342,9 @@ export default function Home() {
         
       </div>
 
-        <div className={`flex-1 flex items-center justify-center mt-12 ${isSidebarOpen ? 'ml-64' : ''}`}>
+        <div className={`flex-1 flex items-center justify-center mt-40 ${isSidebarOpen ? 'ml-64' : ''}`}>
       <div className="w-full max-w-3xl px-4">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">What can i help you with?</h1>
+        <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">What can i help you with?</h1>
         <ChatInput
           input={input}
           isLoading={false}
@@ -356,11 +356,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 max-w-2xl mx-auto px-4">
           <button 
-            className="group p-4 border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all duration-200 bg-white"
+            className="group p-4 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md transition-all duration-200 bg-white dark:bg-transparent"
             onClick={() => handleInputChange("Code a simple landing page")}
           >
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-blue-100 text-blue-600">
+              <div className="p-2 rounded-lg bg-blue-100 dark:bg-transparent text-blue-600 dark:text-blue-300">
                 <svg 
                   className="w-6 h-6"
                   fill="none" 
@@ -371,10 +371,10 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-left">
-                <h2 className="text-md font-semibold text-gray-800 group-hover:text-gray-900">
+                <h2 className="text-md font-semibold text-gray-800 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white">
                   Code a simple landing page
                 </h2>
-                <p className="text-sm text-gray-500 group-hover:text-gray-600">
+                <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
                   Create a responsive landing page with modern design
                 </p>
               </div>
@@ -382,11 +382,11 @@ export default function Home() {
           </button>
 
           <button 
-            className="group p-4 border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all duration-200 bg-white"
+            className="group p-4 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md transition-all duration-200 bg-white dark:bg-transparent"
             onClick={() => handleInputChange("Build a React component")}
           >
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-green-100 text-green-600">
+              <div className="p-2 rounded-lg bg-green-100 dark:bg-transparent text-green-600 dark:text-green-300">
                 <svg 
                   className="w-6 h-6"
                   fill="none" 
@@ -397,10 +397,10 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-left">
-                <h2 className="text-md font-semibold text-gray-800 group-hover:text-gray-900">
+                <h2 className="text-md font-semibold text-gray-800 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white">
                   Build a React component
                 </h2>
-                <p className="text-sm text-gray-500 group-hover:text-gray-600">
+                <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
                   Design and implement a reusable React component
                 </p>
               </div>

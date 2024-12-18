@@ -37,14 +37,27 @@ export default function ChatPage({ params }: { params: { id: string } }) {
           { role: "system", content: SYSTEM_PROMPT },
           userMessage
         ],
+        stream: true,
       });
 
+      let newMessage = "";
       const assistantMessage: Message = {
         role: "assistant",
-        content: response.choices[0]?.message?.content || "Sorry, I couldn't process that.",
+        content: "",
       };
-
       setMessages(prev => [...prev, assistantMessage]);
+
+      for await (const chunk of response) {
+        const content = chunk.choices[0]?.delta?.content || "";
+        newMessage += content;
+        
+        // Update the last message with accumulated content
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1].content = newMessage;
+          return updated;
+        });
+      }
     } catch (error) {
       console.error("Error:", error);
       setMessages(prev => [
@@ -88,14 +101,27 @@ export default function ChatPage({ params }: { params: { id: string } }) {
           ...messages,
           userMessage
         ],
+        stream: true,
       });
 
+      let newMessage = "";
       const assistantMessage: Message = {
         role: "assistant",
-        content: response.choices[0]?.message?.content || "Sorry, I couldn't process that.",
+        content: "",
       };
-
       setMessages(prev => [...prev, assistantMessage]);
+
+      for await (const chunk of response) {
+        const content = chunk.choices[0]?.delta?.content || "";
+        newMessage += content;
+        
+        // Update the last message with accumulated content
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1].content = newMessage;
+          return updated;
+        });
+      }
     } catch (error) {
       console.error("Error:", error);
       setMessages(prev => [
@@ -116,13 +142,9 @@ export default function ChatPage({ params }: { params: { id: string } }) {
 
   return (
     <>
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col mt-24">
       {/* Header */}
-      <div className="sticky top-0 z-10 border-b border-gray-200 bg-white">
-        <div className="flex h-[60px] items-center justify-between px-4">
-          <span className="text-lg font-semibold">GreesyChat</span>
-        </div>
-      </div>
+      
 
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto">
@@ -134,7 +156,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       {/* Chat Input */}
    
     </div>
-    <footer className="bg-white px-4 py-2 z-50">
+    <footer className="bg-white dark:bg-[#212121] px-4 py-2 z-50">
         <div className="mx-auto max-w-2xl sticky mt-2 bottom-0">
           <ChatInput
             input={input}

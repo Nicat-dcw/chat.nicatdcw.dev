@@ -25,10 +25,10 @@ export default function Artifact({ content, lang, title }: ArtifactProps) {
   };
 
   return (
-    <div className="my-4 w-full max-w-sm rounded-lg border border-gray-700  shadow-md cursor-pointer hover:border-gray-600 transition-colors"
+    <div className="my-4 w-52 max-w-sm rounded-xl border border-[#e3e3e3]  shadow-md cursor-pointer hover:border-gray-600 transition-colors"
          onClick={handleClick}>
       {/* Card Header */}
-      <div className="flex items-center justify-between px-4 py-3">
+      <div className="flex items-center justify-between w-52 h-10">
         <div className="flex items-center gap-3">
           {/* File Icon */}
         
@@ -37,12 +37,8 @@ export default function Artifact({ content, lang, title }: ArtifactProps) {
 
           {/* Title and Language */}
           <div>
-            <div className="text-gray-700 font-medium">{title}</div>
-            {lang && (
-              <span className="text-gray-500 text-sm">
-                {lang}
-              </span>
-            )}
+            <div className="text-gray-700 dark:text-white break-none leading-1 break-none font-medium">{title}</div>
+           
           </div>
         </div>
 
