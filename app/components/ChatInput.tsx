@@ -32,7 +32,7 @@ export default function ChatInput({
     <div className="relative">
       {/* Model Selection Drawer - Changed position to top-full and adjusted margins */}
       <div 
-        className={`absolute left-12 w-64 darl:bg-black bg-white rounded-lg shadow-lg border border-gray-200 transform transition-all duration-200 ease-in-out z-50 ${
+        className={`absolute left-12 w-64 dark:bg-black bg-white rounded-lg shadow-lg border border-gray-200 transform transition-all duration-200 ease-in-out z-50 ${
           isModelDrawerOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0 pointer-events-none'
         }`}
       >
@@ -59,8 +59,8 @@ export default function ChatInput({
 
       <form className="w-full" onSubmit={onSubmit}>
         <div className="relative flex h-full max-w-full flex-1 flex-col">
-          <div className="group relative flex w-full items-center">
-            <div className="flex w-full cursor-text flex-col rounded-3xl px-2.5 py-1 transition-colors contain-inline-size dark:bg-[#2f2f2f] bg-[#f4f4f4] dark:bg-[#f9f9f9]">
+          <div className="group relative flex w-full items-center rounded-3xl">
+            <div className="flex w-full cursor-text flex-col rounded-3xl px-2.5 py-1 transition-colors contain-inline-size bg-[#f4f4f4] dark:bg-[#2f2f2f] dark:rounded-3xl">
               <div className="flex min-h-[44px] items-start pl-2">
                 <div className="min-w-0 max-w-full flex-1">
                   <div className="whitespace-pre-wrap text-token-text-primary max-h-[25dvh] max-h-52 overflow-auto default-browser">
