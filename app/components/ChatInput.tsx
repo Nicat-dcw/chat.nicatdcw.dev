@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronUpIcon as ChevronUp, ChevronUpIcon, PaperclipIcon as Paperclip } from "lucide-react";
-import { useRouter } from "next/navigation";
+
 
 interface ChatInputProps {
   input: string;

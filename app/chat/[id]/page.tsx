@@ -14,14 +14,13 @@ export default function ChatPage({ params }: { params: { id: string } }) {
   const [selectedModel, setSelectedModel] = useState("meta-llama/llama-3.2-1b-instruct:free");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const initialMessageProcessed = useRef(false);
-
+  console.log(params);
   // Handle initial message from URL
   useEffect(() => {
     const initialMessage = searchParams.get('message');
     if (initialMessage && !initialMessageProcessed.current) {
       initialMessageProcessed.current = true;
-      const decodedMessage = decodeURIComponent(initialMessage);
-      handleInitialMessage(decodedMessage);
+      handleInitialMessage(decodeURIComponent(initialMessage));
     }
   }, [searchParams]);
 

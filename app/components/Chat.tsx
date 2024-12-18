@@ -1,20 +1,6 @@
 "use client";
 import { Message } from "../types/chat";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { useRouter } from 'next/navigation';
-import { v4 as uuidv4 } from 'uuid';
-import ChatInput from "./ChatInput";
-import { useState } from "react";
-import { 
-  Volume2,
-  Volume2 as VolumeIcon, 
-  Copy as CopyIcon, 
-  ThumbsUp as ThumbsUpIcon, 
-  ThumbsDown as ThumbsDownIcon, 
-  RotateCcw as RotateCcwIcon, 
-  Bot as BotIcon 
-} from 'lucide-react';
+
 import Artifact from '@/app/components/Artifact';
 
 interface ChatProps {

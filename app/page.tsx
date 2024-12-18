@@ -1,5 +1,5 @@
 "use client";
-import Chat from "./components/Chat";
+
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
@@ -37,7 +37,6 @@ export default function Home() {
     const newChatId = uuidv4();
     router.push(`/chat/${newChatId}`);
   };
-  const [isLoading, setIsLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState("Greesychat");
 
   const handleInputChange = (value: string) => {
@@ -64,10 +63,6 @@ export default function Home() {
       const encodedMessage = encodeURIComponent(input);
       router.push(`/chat/${newChatId}?message=${encodedMessage}`);
     }
-  };
-
-  const handleModelSelect = (modelId: string) => {
-    setSelectedModel(modelId);
   };
 
   const toggleSidebar = () => {
@@ -350,8 +345,8 @@ export default function Home() {
           isLoading={false}
           onInputChange={handleInputChange}
           onSubmit={handleSubmit}
-          selectedModel="Greesychat"
-          onModelSelect={() => {}}
+          selectedModel={selectedModel}
+          onModelSelect={() => {setSelectedModel("Greesychat")}}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 max-w-2xl mx-auto px-4">

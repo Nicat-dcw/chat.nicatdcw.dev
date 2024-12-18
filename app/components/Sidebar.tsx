@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 
-interface ChatHistory {
-  id: string;
-  title: string;
-  timestamp: number;
-}
+
 
 interface SidebarProps {
   isOpen: boolean;
