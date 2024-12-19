@@ -11,7 +11,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedModel, setSelectedModel] = useState("meta-llama/llama-3.2-1b-instruct:free");
+  const [selectedModel, setSelectedModel] = useState(searchParams.get('model') || "Greesychat");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const initialMessageProcessed = useRef(false);
   console.log(params);
@@ -142,8 +142,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
   return (
     <>
     <div className="flex min-h-screen flex-col mt-24">
-      {/* Header */}
-      
+      {/* Header */}      
 
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto">
@@ -156,7 +155,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
    
     </div>
     <footer className="bg-white dark:bg-[#212121] px-4 py-2 z-50">
-        <div className="mx-auto max-w-2xl sticky mt-2 bottom-0">
+        <div className="mx-auto max-w-3xl sticky mt-2 bottom-0">
           <ChatInput
             input={input}
             isLoading={isLoading}
@@ -170,4 +169,4 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       </footer>
   </>
   );
-} 
+}

@@ -337,7 +337,7 @@ export default function Home() {
         
       </div>
 
-        <div className={`flex-1 flex items-center justify-center mt-40 ${isSidebarOpen ? 'ml-64' : ''}`}>
+        <div className={`flex-1 flex items-center justify-center mt-40 ${isSidebarOpen ? 'ml-72 ' : ''}`}>
       <div className="w-full max-w-3xl px-4">
         <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">What can i help you with?</h1>
         <ChatInput

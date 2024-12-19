@@ -45,7 +45,7 @@ export default function Artifact({ content, lang, title }: ArtifactProps) {
         {/* Copy Button */}
         <button
           onClick={handleCopy}
-          className="rounded-lg p-1.5 hover:bg-gray-800 text-gray-400 hover:text-gray-300 transition-colors"
+          className="rounded-lg p-1.5 text-gray-400 hover:text-gray-300 transition-colors"
           title="Copy to clipboard"
         >
           {isCopied ? (

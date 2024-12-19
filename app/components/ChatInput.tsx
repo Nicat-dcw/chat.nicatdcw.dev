@@ -22,7 +22,7 @@ export default function ChatInput({
   const [isModelDrawerOpen, setIsModelDrawerOpen] = useState(false);
 
   const models = [
-    { id: 'meta-llama/llama-3.2-1b-instruct:free', name: 'Greesychat' },
+    { id: 'meta-llama/llama-3.2-90b-vision-instruct:free', name: 'Greesychat' },
     { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo' },
     { id: 'claude-3-opus', name: 'Claude 3 Opus' },
     { id: 'claude-3-sonnet', name: 'Claude 3 Sonnet' },
@@ -67,7 +67,7 @@ export default function ChatInput({
                     <textarea
                       value={input}
                       onChange={(e) => onInputChange(e.target.value)}
-                      className="block mt-2 h-10 text-gray-900 dark:text-gray-200 border-none focus:outline-none w-full resize-none border-0 bg-transparent px-0 py-2 placeholder:text-[#5d5d5d]"
+                      className="block mt-2 scrollbar-hide h-10 text-gray-900 dark:text-gray-200 border-none focus:outline-none w-full resize-none border-0 bg-transparent px-0 py-2 placeholder:text-[#5d5d5d]"
                       autoFocus={false}
                       placeholder="Message GreesyChat"
                       data-virtualkeyboard="true"
