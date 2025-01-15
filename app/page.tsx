@@ -261,7 +261,7 @@ export default function Home() {
               role="menu"
               aria-orientation="vertical"
               data-state="open"
-              className="z-50 border border-[#e3e3e3] max-w-xs rounded-2xl popover bg-white dark:bg-[#212121] shadow-lg will-change-[opacity,transform] border border-token-border-light py-2 min-w-[340px] overflow-hidden"
+              className="z-50 border border-[#e3e3e3] w-64 md:max-w-xs rounded-2xl popover bg-white dark:bg-[#212121] shadow-lg will-change-[opacity,transform] border border-token-border-light py-2 min-w-[340px] overflow-hidden"
             >
               {/* ChatGPT Plus Option */}
               <div
